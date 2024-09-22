@@ -1,0 +1,146 @@
+[gd_scene load_steps=14 format=4 uid="uid://cmm8uamhi1sod"]
+
+[ext_resource type="Texture2D" uid="uid://dbkol44xu33rh" path="res://tiles.png" id="1_knucb"]
+[ext_resource type="Script" path="res://slime.gd" id="2_5mcas"]
+[ext_resource type="Texture2D" uid="uid://cvla6wg63ivt4" path="res://walk1.png" id="2_kinsb"]
+[ext_resource type="Texture2D" uid="uid://bvsh5vkvxjuyu" path="res://walk2.png" id="3_66wti"]
+[ext_resource type="Texture2D" uid="uid://cdrux0pd8aqbb" path="res://walk3.png" id="4_h7s2g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4mu4"]
+texture = ExtResource("1_knucb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, -16, 16, -16.875, -16.5, 16, -16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yamf6"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_a4mu4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j6jg"]
+texture = ExtResource("1_knucb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_44rjt"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_7j6jg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s6w8"]
+size = Vector2(14, 20.6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38t0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kinsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_66wti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h7s2g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_ndg2p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2g0t"]
+font = SubResource("SystemFont_ndg2p")
+font_size = 40
+font_color = Color(1, 0, 0.00238883, 1)
+outline_size = 3
+outline_color = Color(1, 0.0196078, 0.113725, 1)
+shadow_color = Color(0, 0, 0, 0.662745)
+
+[node name="Main" type="Node2D"]
+position = Vector2(1, 0)
+metadata/movie_file = "/Users/dayoung/Desktop"
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(1242, -91)
+
+[node name="Ground" type="TileMapLayer" parent="Ground"]
+position = Vector2(417, 284)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD//wEAAAABAAAAAAABAAIAAAABAAAAAAAAAAIAAAACAAAAAAD//wIAAAACAAAAAAD+/wQAAAACAAAAAAABAAUAAAACAAAAAAD8/wQAAAACAAAAAAD+/wIAAAADAAAAAAAAAAQAAAADAAAAAAAEAAMAAAADAAAAAAAFAAIAAAAEAAAAAAAFAAMAAAABAAAAAAD9/wMAAAAEAAAAAAD8/wMAAAABAAAAAAD//wQAAAABAAAAAAD8/wAAAAABAAAAAAD9/wEAAAADAAAAAAD+/wEAAAACAAAAAAD9/wIAAAAEAAAAAAD//wMAAAAEAAAAAAD+/wMAAAABAAAAAAAAAAMAAAAEAAAAAAD9/wQAAAAEAAAAAAABAAMAAAACAAAAAAABAAQAAAADAAAAAAD8/wEAAAADAAAAAAD+/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD4/wIAAAAAAAAAAAD6/wMAAAAEAAAAAAD6/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD6/wIAAAABAAAAAAD6/wEAAAAAAAAAAAD7/wQAAAABAAAAAAD2/wMAAAABAAAAAAD4/wMAAAAEAAAAAAD5/wEAAAAEAAAAAAD7/wEAAAAEAAAAAAD5/wQAAAACAAAAAAD7/wIAAAABAAAAAAD5/wMAAAADAAAAAAD7/wMAAAADAAAAAAD5/wIAAAADAAAAAAD3/wIAAAACAAAAAAD1/wIAAAADAAAAAAD3/wQAAAACAAAAAAD3/wMAAAABAAAAAAD0/wIAAAABAAAAAADz/wMAAAABAAAAAAD0/wMAAAACAAAAAAD2/wQAAAACAAAAAAD1/wMAAAAEAAAAAAD8/wIAAAACAAAAAAAGAAMAAAADAAAAAAAHAAQAAAABAAAAAAAGAAQAAAAEAAAAAAAIAAUAAAAEAAAAAAAKAAQAAAAEAAAAAAA=")
+tile_set = SubResource("TileSet_yamf6")
+
+[node name="Water" type="Node2D" parent="."]
+position = Vector2(1242, -88)
+scale = Vector2(4, 4)
+
+[node name="Water" type="TileMapLayer" parent="Water"]
+position = Vector2(105.5, 70.5)
+tile_map_data = PackedByteArray("AAACAAMAAAAGAAAAAAACAAIAAAAHAAAAAAADAAMAAAAFAAAAAAAJAAUAAAAHAAAAAAAKAAUAAAAHAAAAAAAMAAUAAAAHAAAAAAALAAUAAAAGAAAAAAAKAAYAAAAFAAAAAAA=")
+tile_set = SubResource("TileSet_44rjt")
+
+[node name="Slime" type="CharacterBody2D" parent="."]
+position = Vector2(-151, 117)
+scale = Vector2(5, 5)
+script = ExtResource("2_5mcas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime"]
+position = Vector2(68, 54.7)
+shape = SubResource("RectangleShape2D_6s6w8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Slime"]
+position = Vector2(66.2, 51.5)
+scale = Vector2(0.0734375, 0.0683594)
+sprite_frames = SubResource("SpriteFrames_38t0k")
+frame_progress = 0.119776
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Slime"]
+remote_path = NodePath("../../Camera/Camera2D")
+
+[node name="Label" type="Label" parent="Slime"]
+light_mask = 8
+visibility_layer = 8
+offset_right = 40.0
+offset_bottom = 23.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_g2g0t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+position = Vector2(-151, 117)
+scale = Vector2(5, 5)
+offset = Vector2(500, 0)
